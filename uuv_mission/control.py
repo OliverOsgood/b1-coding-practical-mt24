@@ -1,12 +1,14 @@
 def controller(positions, references, time_step):
-    #PD Parameters (therefore Ki = 0)
+
     Kp = 0.15
     Kd = 0.6
 
-    #if on first step
+    ref = references[time_step]
+    pos = positions[2, time_step]
+
+    #on first step, use a preset value for prev_error since there is no previous step to reference
     if time_step == 0:
-        ref = references[time_step]
-        pos = positions[time_step]
+        
 
         #preset previous error to -1 for first step (no previous step)
         prev_error = -1
@@ -15,8 +17,6 @@ def controller(positions, references, time_step):
         
     #for all other steps, calculate error and previous error
     else:
-        ref = references[time_step]
-        pos = positions[time_step]
         prev_ref = references[time_step - 1]
         prev_pos = positions[time_step - 1]
         prev_error = prev_ref - prev_pos
