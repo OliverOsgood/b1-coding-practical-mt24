@@ -8,7 +8,7 @@ def controller(positions, references, time_step):
     pos = positions[time_step, 1]
 
     if time_step == 0:
-        prev_error = -1
+        prev_error = 0
         error = ref - pos
     else:
         prev_ref = references[time_step - 1]
