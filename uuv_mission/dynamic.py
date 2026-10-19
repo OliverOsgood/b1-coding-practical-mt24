@@ -78,9 +78,9 @@ class Mission:
     def from_csv(cls, file_name: str):
         data = pd.read_csv(file_name) 
         return cls(
-            reference=data["reference"].to_numpy(),
-            cave_height=data["cave_height"].to_numpy(),
-            cave_depth=data["cave_depth"].to_numpy(),
+            reference = data["reference"].to_numpy(),
+            cave_height = data["cave_height"].to_numpy(),
+            cave_depth = data["cave_depth"].to_numpy(),
         )
 
 
